@@ -5,6 +5,7 @@ from __future__ import print_function
 
 import rospy
 import actionlib
+import sys
 
 # Подключение классов DoDishesAction и DoDishesGoal из пакета ros_book_samples
 from ros_book_samples.msg import DoDishesAction, DoDishesGoal

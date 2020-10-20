@@ -14,9 +14,9 @@ def add_two_ints_client(x, y):
         resp = add_two_ints(x, y)
         return resp.sum
 
-    except rospy.ServiceException, e:
-        print "Service call failed: %s"%e
+    except rospy.ServiceException as e:
+        print("Service call failed: {}".format(e))
 
 
 if __name__ == "__main__":
-    print add_two_ints_client(10, 22)
+    print(add_two_ints_client(10, 22))
