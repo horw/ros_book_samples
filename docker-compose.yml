@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  ros-core:
+    container_name: ros-core-test
+    build:
+      context: .
+      args:
+        progress: plain
+    image: test_ros-core
+    ports:
+      - "11311:11311"
+    command:  ./entrypoints/roscore.sh
+
+  talker:
+    image: test_ros-core
+    depends_on:
+      - ros-core
+    environment:
+      - "ROS_MASTER_URI=http://ros-core:11311"
+    command: bash ./entrypoints/two_ints_server.sh
+    restart: always
+
+  listener:
+    image: test_ros-core
+    depends_on:
+      - ros-core
+    environment:
+      - "ROS_MASTER_URI=http://ros-core:11311"
+    command: bash ./entrypoints/two_ints_client.sh
+    restart: always
+
