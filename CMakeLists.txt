@@ -59,12 +59,15 @@ add_message_files(
 add_service_files(
    FILES
    AddTwoInts.srv
+   WordCount.srv
+   WordCountV2.srv
  )
 
 ## Generate actions in the 'action' folder
 add_action_files(
    FILES
    DoDishes.action
+   Timer.action
 #   Action2.action
 )
 
